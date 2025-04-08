@@ -38,7 +38,7 @@ const apiBio = async (req: NextApiRequest, res: NextApiResponse) => {
       const { _id } = (await verifyToken(token as string)) as unknown as IUser;
       await connectMongo();
 
-      const { bio } = req.body.bio;
+      const { bio } = req.body.bio.toString();
       const updatedUser = await UserModel.findOneAndUpdate(
         {
           _id,

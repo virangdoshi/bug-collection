@@ -15,7 +15,7 @@ const apiUserRole = async (req: NextApiRequest, res: NextApiResponse) => {
       const { _id } = (await verifyToken(token as string)) as unknown as IUser;
 
       const allowedRoles = ["user", "admin"];
-      const { role } = req.body;
+      const { role } = req.body.role.toString();
 
       if (!allowedRoles.includes(role)) {
         return res.status(400).json({ message: "Role not allowed" });
