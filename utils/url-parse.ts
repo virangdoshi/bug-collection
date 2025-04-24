@@ -16,7 +16,7 @@ export const isForeignURL = (url: string): boolean => {
   }
   try {
     const { hostname, protocol } = new URL(url);
-    return protocol !== "https:" || !hostname.endsWith("google.com");
+    return protocol !== "https:" || !['google.com'].includes(hostname);
   } catch {
     return true;
   }
