@@ -21,7 +21,7 @@ const authenticate = async (req: NextApiRequest, res: NextApiResponse) => {
       await connectMongo();
 
       const user: IUser = await UserModel.findOne({
-        email,
+        email: email.toString(),
       }).lean();
 
       if (!user) {

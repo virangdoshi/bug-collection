@@ -22,7 +22,7 @@ const apiUserRole = async (req: NextApiRequest, res: NextApiResponse) => {
       }
       await connectMongo();
 
-      await UserModel.findOneAndUpdate({ _id }, { role });
+      await UserModel.findOneAndUpdate({ _id }, { role: role.toString() });
 
       res.status(200).json({
         message:

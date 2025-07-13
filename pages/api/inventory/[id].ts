@@ -21,7 +21,7 @@ const apiDeleteInventory = async (
       await connectMongo();
 
       const deletedItem = await InventoryItemModel.findOneAndDelete({
-        _id: req.query.id,
+        _id: req.query.id.toString(),
         user: _id,
       });
       res.status(201).json({
